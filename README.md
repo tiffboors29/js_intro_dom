@@ -1,65 +1,59 @@
-# Template Frontend Project Repository
+![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
-## Installation
+# JavaScript Document Object Model Manipulation
 
-At the top level:
+## Objectives
 
-```
-npm install
-```
+By the end of this lesson, students should be able to:
 
-## This repository assumes the following layout of files:
+- Recognize the Document Object Model (DOM) as a data structure
+- Compare and contrast the DOM with arrays and maps
+- Use JS to get data out of the DOM
+- Use JS to put data into the DOM
 
-```
-.
-├── ./package.json
-├── ./Gruntfile.js
-├── ./grunt
-│   ├── aliases.json
-│   ├── paths.json
-│   └── ...
-├── ./node_modules
-│   └── ...
-├── ./README.md
-├── ./app.js
-├── ./assets
-│   ├── ./scripts
-│   │   ├── example.js
-│   │   ├── example.json
-│   │   └── ...
-│   └── ./styles
-│       ├── example.css
-│       └── ...
-├── ./data
-│   ├── example.json
-│   └── ...
-├── ./index.html
-└── ./spec
-    └── example.spec.js
+## Instructions
+
+1. Fork and clone this repo.
+1. Change into the project directory.
+1. Follow your instructor's instructions.
+
+## Review: Using Data Types
+
+One student will volunteer to summarize with notes on the whiteboard. The class will participate by instructing the instructor on the code to write in the REPL.
+
+1. Demonstrate how to access data stored in an array.
+1. Demonstrate two ways to change data inside an array.
+1. Demonstrate how to access data stored in an object (hash).
+1. Demonstrate two ways to change data inside and object (hash).
+
+```javascript
+myArray = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ];
+
+myObject = {
+  movie: "Milk",
+  release: 2008,
+  url: "http://www.imdb.com/title/tt1013753/"
+};
 ```
 
-This is where everyhing is stored:
+## The Document Object Model (DOM)
 
-* Overall package configuration is stored in `package.json`.
-* Configuration files for **grunt**, our task runner: `./Gruntfile.js` and `./grunt` directory.  This is our task runner, like rake in Ruby.  If you follow the layout guidelines here, you won't need to change anything in here.
-* Node packages you install from elsewhere are stored in `./node_modules`
-* The documentation you provide for users (like the documentation you're reading right now!) is included in `./README.md`
-* The entry point into your application should be the only Javascript file at the top level.  By convention it's called `index.js`, `app.js`, `main.js`, or `server.js`, and is named in the `package.json` file.
-* All of your other code goes into the `./assets` directory.
-* All of your tests go into the `./spec` (specification) directory.
+Before we dive too deep into the DOM, we need to understand first how browsers work. Watch this short video on [browser rendering](https://www.youtube.com/watch?v=n1cKlKM3jYI). Don't worry too much about taking notes, we want a high-level understanding of what the browser does for us.
 
-## Grunt automations
+So, the DOM is a (potential) large object that describes the structure of our content. Since it's an object, we can use normal techniques to get and set data! In the browser, the DOM is represented by the `document` object. JS specifies some built-in methods that make using the DOM easier. Take a minute to review the [summary of the DOM at MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document). Pay particular attention to the following methods:
 
-Type these at the command line to see useful things happen.
+- `Document.getElementById(String id)`
+- `Document.querySelector(String selector)`
+- `Document.querySelectorAll(String selector)`
 
-* `grunt nag` - runs code quality analysis tools on your code and complains
-    * `grunt jshint` - runs jshint on your code
-    * `grunt jsonlint` - runs jsonlint on your json files
-    * `grunt jscs:status` - runs jscs (Javascript Code Style) on your files
-    * `grunt jsbeautifier:status` finds parts of your code that could be beautified
-* `grunt reformat` - reformats all your code in a standard style
+When reading these methods, try to get a sense of what they're trying to accomplish. We aren't going to ask you to memorize documentation. Don't worry about the details, since we're going to observe some examples.
 
-## TODO
+Each of these methods returns an element from the DOM. What can we do with an [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)? Let's write a few suggestions down on the board.
 
-* [ ] Add webpack or browserify to toolchain to concat/minify a bundle
-* [ ] Configure `.jshintrc`, `.editorconfig`, etc. for in-editor tools
+## Exercise
+
+We've provided some code for a simple list-keeping app. Play around with the app by opening `index.html` in your browser.
+
+Next, work with a partner to read the application's JS code. Annotate the code with comments to explain what (nearly) every line does. If you don't know, Google it!
+
+After you've had time for self-discovery, we'll go through the code together share our annotations.
